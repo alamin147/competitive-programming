@@ -4,7 +4,8 @@
 #include <stdio.h>
 int main()
 {
-    int a[5];
+    freopen("output.txt", "w", stdout);
+    int a[] = {3, 5, 4, 1, 9};
     for (int i = 0; i < 5; i++)
     {
         scanf("%d", &a[i]);
