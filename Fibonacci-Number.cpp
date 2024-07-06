@@ -16,9 +16,7 @@ public:
             int s = a0 + a1;
             c++;
             if (c == n)
-            {
                 return a1;
-            }
             a0 = a1;
             a1 = s;
         }
