@@ -16,21 +16,38 @@ bool isEven(int n);
 
 void alfa()
 {
-    vector<char>v={'a','e','i','o','u'};
     int n;
     cin>>n;
-
-    string a;
-
-    int j=0;
-    fn(0,n,1)
+    string a,b;
+    cin>>a;
+    bool zeroIn=false;
+    for(int i=0;i<n;i++)
     {
-        if(j>4)
-        j=0;
-        a+=v[j++];
+        if(zeroIn==false&&a[i]=='0')
+        {
+            b+='0';
+            zeroIn=true;
+        }
+        elif(a[i]=='1')
+        {
+            b+='1';
+            zeroIn=false;
+        }
     }
-    s(a);
-    prn(a);
+
+    int z=0,o=0;
+    for(auto i:b)
+    {
+        if(i=='0')
+        z++;
+        else
+        o++;
+    }
+
+    if(o>z)
+    py;
+    else
+    pn;
 
 }
 
