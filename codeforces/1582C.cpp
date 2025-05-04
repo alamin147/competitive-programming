@@ -4,7 +4,6 @@ using namespace std;
 #define py cout<<"YES"<<endl
 #define pn cout<<"NO"<<endl
 #define fn(s,e,in) for(int i=s;i<e;i+=in)
-#define fna(v) for(auto i:v)
 #define s(a) sort(a.begin(),a.end())
 #define prn(c) cout << c <<"\n"
 #define cc cout <<"\n"
@@ -17,27 +16,30 @@ bool isEven(int n);
 
 void alfa()
 {
-    int n;
+    int n,res=1e9;
     cin>>n;
-
-    vc(v,n,int);
-    fn(0,n,1)
-    cin>>v[i];
-
-    ll c=1;
-    s(v);
-    ll spell=0;
-    fna(v)
+    string s;
+    cin>>s;
+    for(char ch='a';ch<='z';ch++)
     {
-        if(i==c)
-        c++;
-        elif(i>c)
+        int l=0,r=n-1,ans=0;
+        while(l<r)
         {
-            spell+=(i-c);
-            c++;
+            if(s[l]==s[r])
+                l++,r--;
+            else if(s[l]==ch)
+                l++,ans++;
+            else if(s[r]==ch)
+                r--,ans++;
+            else
+            {
+                ans=1e9;
+                break;
+            }
         }
+        res=min(res,ans);
     }
-    prn(spell);
+    cout << ((res==1e9)?-1:res) << '\n';
 }
 
 int main()

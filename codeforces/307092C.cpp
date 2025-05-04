@@ -20,7 +20,7 @@ void alfa()
     int n,m;
     cin>>n>>m;
     vector<ll>v1(n),v2(m);
-    map<ll,int>m1,m2;
+    map<ll,ll>m1,m2;
 
     fn(0,n,1)
     {
@@ -37,18 +37,16 @@ void alfa()
     {
         s.insert(i);
     }
-    int c=0;
+    ll c=0;
     for(auto i:s){
         if(m1[i]&&m2[i])
         {
-            int d=m1[i]*m2[i];
+            ll d=(1LL*m1[i]*m2[i]);
             c+=d;
         }
     }
 
     prn(c);
-
-
 
 }
 

@@ -4,7 +4,6 @@ using namespace std;
 #define py cout<<"YES"<<endl
 #define pn cout<<"NO"<<endl
 #define fn(s,e,in) for(int i=s;i<e;i+=in)
-#define fna(v) for(auto i:v)
 #define s(a) sort(a.begin(),a.end())
 #define prn(c) cout << c <<"\n"
 #define cc cout <<"\n"
@@ -17,27 +16,30 @@ bool isEven(int n);
 
 void alfa()
 {
-    int n;
+    ll n,len;
     cin>>n;
 
-    vc(v,n,int);
-    fn(0,n,1)
+    len=(n*(n-1))/2;
+
+    vc(v,len,ll);
+    fn(0,len,1)
     cin>>v[i];
 
-    ll c=1;
     s(v);
-    ll spell=0;
-    fna(v)
+    
+    ll a=-1,st=n-1;
+
+    while(a<len)
     {
-        if(i==c)
-        c++;
-        elif(i>c)
-        {
-            spell+=(i-c);
-            c++;
-        }
+        a+=st;
+        pa(v[a]);
+        st--;
+        if(st<=0)
+        break;
     }
-    prn(spell);
+    
+    prn(v[a]);
+
 }
 
 int main()
@@ -62,3 +64,5 @@ bool validIndex(int i,int n){
 bool isEven(int n){
     return n%2==0;
 }
+
+

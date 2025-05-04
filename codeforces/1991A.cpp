@@ -4,7 +4,6 @@ using namespace std;
 #define py cout<<"YES"<<endl
 #define pn cout<<"NO"<<endl
 #define fn(s,e,in) for(int i=s;i<e;i+=in)
-#define fna(v) for(auto i:v)
 #define s(a) sort(a.begin(),a.end())
 #define prn(c) cout << c <<"\n"
 #define cc cout <<"\n"
@@ -19,25 +18,15 @@ void alfa()
 {
     int n;
     cin>>n;
-
-    vc(v,n,int);
+    int mx=0;
     fn(0,n,1)
-    cin>>v[i];
-
-    ll c=1;
-    s(v);
-    ll spell=0;
-    fna(v)
     {
-        if(i==c)
-        c++;
-        elif(i>c)
-        {
-            spell+=(i-c);
-            c++;
-        }
+        int tt;
+        cin>>tt;
+        if(i%2==0)
+        mx=max(mx,tt);
     }
-    prn(spell);
+    prn(mx);
 }
 
 int main()

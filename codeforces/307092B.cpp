@@ -9,7 +9,7 @@ using namespace std;
 #define cc cout <<"\n"
 #define pr(a,b) cout << a <<" "<<b
 #define pra(a) cout << a <<" "
-#define vc(v,n) vector<int>v(n)
+#define vc(v,n) vector<long long>v(n)
 #define elif else if
 bool validIndex(int i,int n){
     return i>=0 && i<n;
@@ -17,38 +17,34 @@ bool validIndex(int i,int n){
 
 void alfa()
 {
-    int n,m;
+    ll n,m;
     cin>>n>>m;
     vc(v1,n);
     vc(v2,m);
-    vc(v,m+1);
-    // vector<int>v;
+    vector<int>v;
     fn(0,n,1){
         cin>>v1[i];
     }
     fn(0,m,1){
         cin>>v2[i];
     }
-    v[0]=0;
-    int j=1,i=0,c=0;
-    int q=1;
-    while(j<=m){
-        if(v1[i]<v2[j]){
+    
+    ll j=0,i=0,c=0;
+    while(j<m){
+        if(i<n&&v1[i]<v2[j]){
             c++;
             i++;
         }
         else
         {
-            v[j]=(c+v[j-1]);
+            v.push_back(c);
             j++;
-            c=0;
         }
     }
 
-    int k=0;
-    for(int i=0;i<=m;i++)
+    for(auto i:v)
     {
-        cout<<v[i]<<" ";
+        cout<<i<<" ";
     }
     cc;
 }
