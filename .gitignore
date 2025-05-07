@@ -4,4 +4,4 @@ io
 outputs
 unknown.cpp
 .cph
-.vscode
+.vscode/*
