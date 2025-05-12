@@ -16,32 +16,40 @@ bool isEven(int n);
 
 void alfa()
 {
-    int n;
-    ll k;
+    int n,k;
     cin>>n>>k;
 
-    vc(v,n,ll);
+    vc(a,n,ll);
+    vc(h,n,ll);
     fn(0,n,1)
-    cin>>v[i];
-    ll ans=LLONG_MAX;
-    int l=0,r=0;
+    cin>>a[i];
+    fn(0,n,1)
+    cin>>h[i];
+
+
+    ll l=0,r=0;
+    ll len=0;
     ll s=0;
     while(r<n)
     {
-        s+=v[r];
-        while(s>=k)
+        if(h[r-1]%h[r]==0)
         {
-            ans=min(ans,(ll)(r-l+1));
-            s-=v[l];
+            s+=a[r];
+        }
+        else
+        {
+            s=a[r];
+            l=r;
+        }
+        while(s>k)
+        {
+            s-=a[l];
             l++;
         }
+        len=max(len,r-l+1);
         r++;
     }
-    if(ans==LLONG_MAX)
-    prn(-1);
-    else
-    prn(ans);
-
+    prn(len);
 }
 
 int main()
@@ -49,9 +57,9 @@ int main()
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
-    // int t;
-    // cin>>t;
-    // while(t--)
+    int t;
+    cin>>t;
+    while(t--)
         alfa();
 
  #ifndef ONLINE_JUDGE

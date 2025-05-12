@@ -4,7 +4,7 @@ using namespace std;
 #define py cout<<"YES"<<endl
 #define pn cout<<"NO"<<endl
 #define fn(s,e,in) for(int i=s;i<e;i+=in)
-#define ss(a) sort(a.begin(),a.end())
+#define s(a) sort(a.begin(),a.end())
 #define prn(c) cout << c <<"\n"
 #define cc cout <<"\n"
 #define pab(a,b) cout << a <<" "<<b
@@ -23,7 +23,7 @@ void alfa()
     vc(v,n,ll);
     fn(0,n,1)
     cin>>v[i];
-    ll ans=LLONG_MAX;
+    ll ans=0;
     int l=0,r=0;
     ll s=0;
     while(r<n)
@@ -31,17 +31,13 @@ void alfa()
         s+=v[r];
         while(s>=k)
         {
-            ans=min(ans,(ll)(r-l+1));
+            ans+=n-r;
             s-=v[l];
             l++;
         }
         r++;
     }
-    if(ans==LLONG_MAX)
-    prn(-1);
-    else
     prn(ans);
-
 }
 
 int main()
@@ -49,7 +45,7 @@ int main()
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
-    // int t;
+    int t;
     // cin>>t;
     // while(t--)
         alfa();

@@ -4,7 +4,7 @@ using namespace std;
 #define py cout<<"YES"<<endl
 #define pn cout<<"NO"<<endl
 #define fn(s,e,in) for(int i=s;i<e;i+=in)
-#define ss(a) sort(a.begin(),a.end())
+#define s(a) sort(a.begin(),a.end())
 #define prn(c) cout << c <<"\n"
 #define cc cout <<"\n"
 #define pab(a,b) cout << a <<" "<<b
@@ -16,31 +16,39 @@ bool isEven(int n);
 
 void alfa()
 {
-    int n;
-    ll k;
-    cin>>n>>k;
+    int k,n,m;
+    cin>>k>>n>>m;
 
-    vc(v,n,ll);
+    vc(mono,n,int);
+    vc(poly,m,int);
+    vector<int>v(n+m);
     fn(0,n,1)
-    cin>>v[i];
-    ll ans=LLONG_MAX;
-    int l=0,r=0;
-    ll s=0;
-    while(r<n)
+    cin>>mono[i];
+    fn(0,m,1)
+    cin>>poly[i];
+
+    bool err=false;
+    merge(mono.begin(),mono.end(),poly.begin(),poly.end(),v.begin());
+    for(int i=0;i<n+m;i++)
     {
-        s+=v[r];
-        while(s>=k)
+        if(v[i]==0)
         {
-            ans=min(ans,(ll)(r-l+1));
-            s-=v[l];
-            l++;
+            k++;
         }
-        r++;
+        else if(v[i]>k)
+        {
+            err=true;
+            break;
+        }
     }
-    if(ans==LLONG_MAX)
+    if(err)
     prn(-1);
     else
-    prn(ans);
+    {
+    for(auto i:v)
+        cout<<i<<" ";
+        cc;
+    }
 
 }
 
@@ -49,9 +57,9 @@ int main()
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
-    // int t;
-    // cin>>t;
-    // while(t--)
+    int t;
+    cin>>t;
+    while(t--)
         alfa();
 
  #ifndef ONLINE_JUDGE

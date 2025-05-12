@@ -4,7 +4,7 @@ using namespace std;
 #define py cout<<"YES"<<endl
 #define pn cout<<"NO"<<endl
 #define fn(s,e,in) for(int i=s;i<e;i+=in)
-#define ss(a) sort(a.begin(),a.end())
+#define s(a) sort(a.begin(),a.end())
 #define prn(c) cout << c <<"\n"
 #define cc cout <<"\n"
 #define pab(a,b) cout << a <<" "<<b
@@ -17,31 +17,23 @@ bool isEven(int n);
 void alfa()
 {
     int n;
-    ll k;
-    cin>>n>>k;
-
+    cin>>n;
     vc(v,n,ll);
     fn(0,n,1)
     cin>>v[i];
-    ll ans=LLONG_MAX;
-    int l=0,r=0;
-    ll s=0;
-    while(r<n)
+    int i=0,j=n-1;
+    ll x=0,y=0,z=0;
+    while(i<=j)
     {
-        s+=v[r];
-        while(s>=k)
-        {
-            ans=min(ans,(ll)(r-l+1));
-            s-=v[l];
-            l++;
-        }
-        r++;
-    }
-    if(ans==LLONG_MAX)
-    prn(-1);
-    else
-    prn(ans);
+        if(x<y)
+            x+=v[i++];
+        else
+            y+=v[j--];
 
+        if(x==y)
+        z=x;
+    }
+    prn(z);
 }
 
 int main()
@@ -49,7 +41,7 @@ int main()
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
-    // int t;
+    int t;
     // cin>>t;
     // while(t--)
         alfa();
