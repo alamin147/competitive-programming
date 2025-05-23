@@ -1,6 +1,8 @@
 {
   "files.associations": {
     "*.dbclient-js": "javascript",
+    ".php_cs": "php",
+    ".php_cs.dist": "php",
     "iostream": "cpp",
     "random": "cpp",
     "ostream": "cpp",
@@ -87,6 +89,14 @@
     "typeindex": "cpp",
     "typeinfo": "cpp",
     "variant": "cpp",
-  },
+    "expected": "cpp",
+    "format": "cpp",
+    "generator": "cpp",
+    "print": "cpp",
+    "spanstream": "cpp",
+    "stacktrace": "cpp",
+    "stdfloat": "cpp",
+    "text_encoding": "cpp"
+},
 
 }
