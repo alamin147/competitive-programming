@@ -18,20 +18,36 @@ void alfa()
 {
     int n;
     cin>>n;
-    vc(v,n,ll);
-    fn(0,n,1)
-    cin>>v[i];
 
-    s(v);
-    ll t=1;
-    fn(0,n,1)
+    vector<pair<ll,ll>>v;
+
+    int t=n;
+    while(t--)
     {
-        if(v[i]>t)
-        break;
+        ll a,b;
+        cin>>a>>b;
+        v.push_back({a,b});
 
-        t+=v[i];
     }
-    prn(t);
+    s(v);
+    
+    ll c=0,cur=0;
+    for(ll i=0;i<n;i++)
+    {
+        if(i==0)
+        {
+            cur=v[i].second;
+            c++;
+        }
+        elif(v[i].first>=cur)
+        {
+            c++;
+            cur=v[i].second;
+        }
+        else
+            cur=min(cur,v[i].second);
+    }
+    prn(c);
 }
 
 int main()
@@ -39,7 +55,9 @@ int main()
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
-    
+    // int t;
+    // cin>>t;
+    // while(t--)
         alfa();
 
  #ifndef ONLINE_JUDGE
