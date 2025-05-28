@@ -16,22 +16,24 @@ bool isEven(int n);
 
 void alfa()
 {
-    int n;
+    int n, ans = 1, i, j;
     cin >> n;
-    cout << 32 << endl;
-    for (int i = 0; i < 32; i++, n >>= 1)
+    vector<int> a(n);
+    for (auto &d : a)
+        cin >> d;
+
+    for (i = 0; i <= 20; i++)
     {
-        if (n & 1)
+        int p = 0;
+        for (j = 0; j < n; j++)
         {
-            if (n & 2)
-                n++, cout << -1 << " ";
-            else
-                cout << 1 << " ";
+            if ((a[j] >> i) & 1)
+                ans = max(ans, j - p + 1), p = j + 1;
         }
-        else
-            cout << 0 << " ";
+        if (p)
+            ans = max(ans, n + 1 - p);
     }
-    cout << endl;
+    cout << ans << endl;
 }
 
 int main()
