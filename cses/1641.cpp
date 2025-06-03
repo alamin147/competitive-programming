@@ -1,75 +1,46 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 #define ll long long
-#define py cout<<"YES"<<endl
-#define pn cout<<"NO"<<endl
-#define fn(s,e,in) for(int i=s;i<e;i+=in)
-#define s(a) sort(a.begin(),a.end())
-#define prn(c) cout << c <<"\n"
-#define cc cout <<"\n"
-#define pab(a,b) cout << a <<" "<<b
-#define pa(a) cout << a <<" "
-#define vc(v,n,l) vector<l>v(n)
-#define elif else if
-bool validIndex(int i, int n);
-bool isEven(int n);
 
-void alfa()
-{
-    ll n,x;
-    cin>>n>>x;
-    vector<ll>v;
-    map<ll,ll>m;
-    fn(0,n,1)
-    {
-        ll tt;
-        cin>>tt;
-        if(!m.count(tt))
-        v.push_back(tt);
+void alfa() {
+    int n;
+    ll x;
+    cin >> n >> x;
+    vector<pair<ll, int>> v(n);
+
+    for (int i = 0; i < n; ++i) {
+        cin >> v[i].first;
+        v[i].second = i + 1; 
     }
-    n = v.size();
-    fn(0,n,1)
-    {
-        for(int j=0;j<n;j++)
-        {
-            for(int k=0;k<n;k++)
-            {
-                if(i!=j&&j!=k&&i!=k)
-                {
-                    ll a=v[i]+v[j]+v[k];
-                    if(a==x)
-                    {
-                        pab(v[i],v[j]);
-                        cout<<" ";
-                        prn(v[k]);
-                        return;
-                    }
-                }
+
+    sort(v.begin(), v.end());
+
+    for (int i = 0; i < n; ++i) {
+        int l = i + 1, r = n - 1;
+        while (l < r) {
+            ll sum = v[i].first + v[l].first + v[r].first;
+            if (sum == x) {
+                cout << v[i].second << " " << v[l].second << " " << v[r].second << "\n";
+                return;
+            } else if (sum < x) {
+                ++l;
+            } else {
+                --r;
             }
         }
     }
-    prn("IMPOSSIBLE");
+
+    cout << "IMPOSSIBLE\n";
 }
 
-int main()
-{
+int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
-    int t;
-    // cin>>t;
-    // while(t--)
-        alfa();
 
- #ifndef ONLINE_JUDGE
-            cerr<<"Time: "<<1000*((double)clock())/(double)CLOCKS_PER_SEC<<"ms\n";
-        #endif
-}
+    alfa();
 
-
-bool validIndex(int i,int n){
-    return i>=0 && i<n;
-}
-bool isEven(int n){
-    return n%2==0;
+#ifndef ONLINE_JUDGE
+    cerr << "Time: " << 1000 * ((double)clock()) / (double)CLOCKS_PER_SEC << "ms\n";
+#endif
 }
