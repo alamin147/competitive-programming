@@ -19,6 +19,7 @@ ll lcm(ll a,ll b);
 bool isPrime(ll n);
 const int len=1e5;
 
+
 void alfa()
 {
     int n;
@@ -27,24 +28,25 @@ void alfa()
     vc(v,n,ll);
     fn(0,n,1)
     cin>>v[i];
-    vc(freq,len,ll);
-    vector<ll>freq(len,-1);
     s(v);
 
-    fn(0,n,1)
+    int q;
+    cin>>q;
+    while(q--)
     {
-        freq[v[i]]=i;
+        int a,b;
+        cin>>a>>b;
+         auto l = lower_bound(v.begin(), v.end(), a);
+        auto r = upper_bound(v.begin(), v.end(), b);
+
+        cout<<(r-l)<<" ";
     }
-
-
 }
 
 int main()
 {
     piza
-    int t;
-    cin>>t;
-    while(t--)
+
         alfa();
 
  #ifndef ONLINE_JUDGE
