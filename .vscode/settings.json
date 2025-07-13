@@ -98,5 +98,6 @@
     "stdfloat": "cpp",
     "text_encoding": "cpp"
 },
+"discord.enabled": true,
 
 }
