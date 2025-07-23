@@ -4,7 +4,7 @@
 using namespace __gnu_pbds;
 #define ll long long
 using namespace std;
-typedef tree<ll, null_type, less_equal<ll>, rb_tree_tag, tree_order_statistics_node_update> ordered_set;
+typedef tree<ll, null_type, less_equal<ll>, rb_tree_tag, tree_order_statistics_node_update> pbds;
 
 #define py cout<<"YES"<<endl
 #define pn cout<<"NO"<<endl
@@ -31,7 +31,7 @@ void alfa()
     vector<ll> v(n+1);
     for(ll i=1; i<=n; i++)
         cin >> v[i];
-    ordered_set p;
+    pbds p;
     ll ans=0;
     for(ll i=1; i<=n; i++)
     {
