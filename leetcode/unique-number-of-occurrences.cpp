@@ -1,0 +1,16 @@
+class Solution {
+public:
+    bool uniqueOccurrences(vector<int>& arr) {
+        map<int,int>m;
+        for(auto i:arr)
+        m[i]++;
+
+        int n=m.size();
+        set<int>a;
+        for(auto i:m)
+        {
+            a.insert(i.second);
+        }
+        return a.size()==n;
+    }
+};
