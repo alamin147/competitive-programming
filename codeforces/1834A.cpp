@@ -31,11 +31,12 @@ ll num_one_bits(ll n);
 void alfa() {
   int n;
   cin >> n;
-  vc(v, n, int);
+
   int min = 0, plus = 0;
   fn(0, n, 1) {
-    cin >> v[i];
-    if (v[i] < 0)
+    int tt;
+    cin >> tt;
+    if (tt < 0)
       min++;
     else
       plus++;
